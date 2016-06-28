@@ -10,15 +10,21 @@ void setup() {
 }
 
 void loop() {
-  digitalWrite(ledVermelho, HIGH);
+  
   if(Serial.available()) {
     char caractere = Serial.read();
-    if( caractere == '1') {
-      digitalWrite(ledVermelho, LOW);
+    if(caractere == '1') {
       digitalWrite(ledVerde, HIGH);
       delay(5000);
       digitalWrite(ledVerde, LOW);
-      digitalWrite(ledVermelho, HIGH);
+    }
+    else {
+      if(caractere == '0') {
+        digitalWrite(ledVermelho, HIGH);
+        delay(5000);
+        digitalWrite(ledVermelho, LOW);
+      }
+      
     }
   }
 }
